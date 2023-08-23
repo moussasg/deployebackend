@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express') // certificat ssr for lanving https
 const {requireAuth} = require('./src/controllers/authController')
 const app = express(); // Add parentheses to call the express function
 const mongoose = require('mongoose');
