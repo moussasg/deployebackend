@@ -1,11 +1,12 @@
-const express = require('express') // certificat ssr for lanving https
+const express = require('express') // certificat ssr for https
 const {requireAuth} = require('./src/controllers/authController')
 const app = express(); // Add parentheses to call the express function
 const mongoose = require('mongoose');
+const cors = require('cors')
 const authController = require('./src/controllers/authController')
 const cookieParser = require('cookie-parser');
 const {checkUser } = require('./src/controllers/authController')
-//app.use(cors())
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 app.post('/signup', authController.signup_post);
