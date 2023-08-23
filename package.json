@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "start": "node express.js",
+    "start": "nodemon express.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
