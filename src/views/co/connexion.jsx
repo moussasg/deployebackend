@@ -11,8 +11,8 @@ function Login() {
   const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {// localhost marche pas dans le dépoloiement mais avec adress ip seveur ych3al les autres peut conecté
-      const response = await axios.post('http://192.168.1.14:3002/login', { email, password });
+    try {// localhost marche pas dans le dépoloiement mais avec adress ip public not local seveur ych3al les autres peut conecté
+      const response = await axios.post('http://5.30.224.153:3002/login', { email, password });
       if (response.data.success === true) {
         const token = response.data.token; // 'jwt' le clé de stockage
         localStorage.setItem('jwt',token); // Save the token in localStorage

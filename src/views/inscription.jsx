@@ -16,8 +16,8 @@ function UserForm() {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-    const response = await axios.post('http://192.168.1.14:3002/signup', {email,password});
+    try { // public not local
+    const response = await axios.post('http://5.30.224.153:3002/signup', {email,password});
     console.log(response)
     if (response.data.success===true) { // il faut déclaré success dans le backedn f la réponse li trécupiriha
       const token = response.data.token; // 'jwt' le clé de stockage
