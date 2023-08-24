@@ -30,7 +30,7 @@
     "jsonwebtoken": "^9.0.1",
     "mdb-ui-kit": "^6.2.0",
     "mongodb": "^5.6.0",
-    "mongoose": "^7.1.0",
+    "mongoose": "^6.10.0",
     "node": "^19.8.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
