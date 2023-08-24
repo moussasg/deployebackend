@@ -5,12 +5,10 @@ const app = express()
 const mongoose = require('mongoose');
 const cors = require('cors')
 const authController = require('./src/controllers/authController')
-const cookieParser = require('cookie-parser');
 const {checkUser } = require('./src/controllers/authController')
 app.use(cors())
 dotenv.config();
 app.use(express.json());
-app.use(cookieParser());
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);
 app.post('/MesSmartphones/:id', authController.commands_post)
