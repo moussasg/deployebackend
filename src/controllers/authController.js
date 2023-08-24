@@ -7,7 +7,7 @@ const Command = require('../models/commands');
   const requireAuth = (req, res, next) => { // spéciale pour node pas pour react
     const token = req.cookies.jwt;
     if (token) {
-      jwt.verify(token, 'net ninja secret', (err, decodedToken) => {
+      jwt.verify(token, process.env.JWT_SECRET , (err, decodedToken) => { // jwtsecret is inside .env
         if (err) {
           console.log(err.message);
           // Si une erreur se produit, redirigez l'utilisateur vers la page de connexion

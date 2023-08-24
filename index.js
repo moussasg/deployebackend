@@ -38,14 +38,10 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   next();
 });
-mongoose.connect(process.env.DB_URL , { useNewUrlParser: true  , useUnifiedTopology:true,});
-mongoose.connection.on("error", err => {
-  console.log("err", err)
-
-})
-mongoose.connection.on("connected", (err, res) => {
-  console.log("mongoose is connected")
-})
+mongoose.set('strictQuery', true)
+mongoose.connect(process.env.DB_URL , { useNewUrlParser: true  , useUnifiedTopology:true,} , ()=> {
+  console.log("mongodb is connected")
+});
  app.listen(PORT , ()=> {
   console.log(`listening at port ${PORT}`)
 })
