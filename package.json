@@ -30,7 +30,7 @@
     "framer-motion": "^10.12.4",
     "jsonwebtoken": "^9.0.1",
     "mdb-ui-kit": "^6.2.0",
-    "mongodb": "^6.0.4",
+    "mongodb": "^5.8.1",
     "mongoose": "^6.10.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
