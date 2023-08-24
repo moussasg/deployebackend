@@ -38,21 +38,16 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   next();
 });
+mongoose.connect(process.env.DB_URL);
+mongoose.connection.on("error", err => {
+  console.log("err", err)
 
-mongoose.set('strictQuery', false);
-const connectdb = async ()=> {
-  try {
-    const conn = await mongoose.connect(process.env.DB_URL);
-    console.log(`mongodb conected : ${conn.connection.host}`)
-  } catch(error) {
-    console.log(error)
-    process.exit(1)
-  }
-}
-connectdb().then(()=> {
+})
+mongoose.connection.on("connected", (err, res) => {
+  console.log("mongoose is connected")
+})
  app.listen(PORT , ()=> {
   console.log(`listening at port ${PORT}`)
-})
 })
 
 
