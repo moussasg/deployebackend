@@ -1,5 +1,4 @@
 
-const { isEmail } = require('validator'); // isEmail = function used to validate whether a given string is a valid email address.
 // The validator = 'library 'is  used in Node.js for data validation various types of data : number , string , url
 const bcrypt = require('bcrypt'); // library in the Node.js for hashing passwords securely.
 const mongoose = require('mongoose')
@@ -9,7 +8,6 @@ const userSchema = new mongoose.Schema({ //
       required: [true, 'Please enter an email'],
       unique: true,
       lowercase: true,
-      validate: [isEmail, 'Please enter a valid email']
     },
     password: {
       type: String,
