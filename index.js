@@ -38,7 +38,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   next();
 });
-mongoose.connect(process.env.DB_URL);
+mongoose.connect(process.env.DB_URL , { useNewUrlParser: true  , useUnifiedTopology:true,});
 mongoose.connection.on("error", err => {
   console.log("err", err)
 
