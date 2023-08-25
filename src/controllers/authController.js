@@ -1,14 +1,13 @@
 const User = require('../models/User');//on l'utilise en createToken
 const jwt = require('jsonwebtoken');//jsonwebtoken structure de données dans les échange de données entre 2 entité ou ya ادعاءات/ pour structuré / library used in Node.js to generate and verify JWTs for implementing authentication and authorization mechanisms.
 const bcrypt = require('bcrypt')
-require('dotenv').config();
 const Command = require('../models/commands');
 ////2) Authcontroller : comunique avec mongoose / modules or classes for handling authentication-routes logic and endpoints. for signup+signin et export les
 // handle errors
   const requireAuth = (req, res, next) => { // spéciale pour node pas pour react
     const token = req.cookies.jwt;
     if (token) {
-      jwt.verify(token, process.env.JWT_SECRET , (err, decodedToken) => { // jwtsecret is inside .env
+      jwt.verify(token, 'net ninja secret' , (err, decodedToken) => { // jwtsecret is inside .env
         if (err) {
           console.log(err.message);
           // Si une erreur se produit, redirigez l'utilisateur vers la page de connexion
@@ -26,7 +25,7 @@ const Command = require('../models/commands');
   const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
-      jwt.verify(token, process.env.JWT_SECRET , async (err, decodedToken) => {
+      jwt.verify(token, 'net ninja secret', async (err, decodedToken) => {
         if (err) {
           res.locals.user = null;
           next();
@@ -72,7 +71,7 @@ const handleErrors = (err) => {
 // create json web token
 const maxAge = 3 * 24 * 60 * 60;// age a intérieur du jwt / jour/heure/minute/sec
 const createToken = (id) => {// on introduit a intérieur des posts dans const token
-  return jwt.sign({ id }, process.env.JWT_SECRET , {// net ninja secret = secret key or passphrase used for signing JSON Web Tokens (JWT) 
+  return jwt.sign({ id }, 'net ninja secret' , {// net ninja secret = secret key or passphrase used for signing JSON Web Tokens (JWT) 
     expiresIn: maxAge
   });
 };
