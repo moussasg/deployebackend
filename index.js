@@ -6,8 +6,12 @@ const mongoose = require('mongoose');
 const cors = require('cors')
 const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
-app.use(cors())
 dotenv.config();
+const corsOptions = {
+  origin: 'https://verdant-gumdrop-df80a6.netlify.app', // Remplacez par l'URL de votre frontend
+  credentials: true, // Permet d'inclure les cookies et les en-têtes d'authentification
+};
+app.use(cors(corsOptions))
 app.use(express.json());
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);
