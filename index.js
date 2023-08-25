@@ -21,18 +21,6 @@ app.get('/user', authController.user_get); // get spécifique user
 app.get('/', (req, res) => {
   return res.send('Yo!')
 })
-/*
-app.get('/logout', authController.requireAuth, (req, res) => {
-  res.render('logout');
-});
-*/
-// Route '/logout' - GET route for user logout
-/*
-app.get('/logout', authController , (req,res)=> {
-  res.render('logout');
-});
-*/
-// Middleware
 const PORT = process.env.PORT
 app.get('*', checkUser);
 mongoose.set('strictQuery', true)
