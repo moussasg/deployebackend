@@ -13,7 +13,7 @@ app.use(cors({
   credentials: true, // Allow credentials
 }));// Set up CORS headers manually
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://soft-cannoli-96b536.netlify.app');
+res.header('Access-Control-Allow-Origin', 'https://soft-cannoli-96b536.netlify.app');
 res.header('Access-Control-Allow-Methods', 'GET, POST');
 res.header('Access-Control-Allow-Headers', 'Content-Type');
 res.header('Access-Control-Allow-Credentials', true);
@@ -21,6 +21,7 @@ res.header('Access-Control-Allow-Credentials', true);
 });
 
 app.use(express.json());
+app.get('*', checkUser);
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);
 app.post('/MesSmartphones/:id', authController.commands_post)
@@ -30,7 +31,6 @@ app.get('/', (req, res) => {
   return res.send('Yo!')
 })
 const PORT = process.env.PORT
-app.get('*', checkUser);
 mongoose.set('strictQuery', true)
 mongoose.connect(process.env.DB_URL , { useNewUrlParser: true  , useUnifiedTopology:true,} , ()=> {
   console.log("mongodb is connected")
