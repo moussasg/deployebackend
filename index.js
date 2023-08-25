@@ -8,7 +8,7 @@ const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
 const corsOptions = {
-  origin: 'https://verdant-gumdrop-df80a6.netlify.app', // Remplacez par l'URL de votre frontend
+  origin: 'https://soft-cannoli-96b536.netlify.app', // Remplacez par l'URL de votre frontend
   credentials: true, // Permet d'inclure les cookies et les en-têtes d'authentification
 };
 app.use(cors(corsOptions))
@@ -46,7 +46,7 @@ mongoose.set('strictQuery', true)
 mongoose.connect(process.env.DB_URL , { useNewUrlParser: true  , useUnifiedTopology:true,} , ()=> {
   console.log("mongodb is connected")
 });
- app.listen(PORT , ()=> {
+ app.listen(PORT , ()=> { 
   console.log(`listening at port ${PORT}`)
 })
 
