@@ -3,15 +3,12 @@ const express = require('express')
 const dotenv = require('dotenv');
 const app = express()
 const mongoose = require('mongoose');
-const cors = require('cors')
 const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
-app.use(cors({
-  origin: 'https://soft-cannoli-96b536.netlify.app', // Replace with your frontend domain or specific domains
-  methods: 'GET, POST, PUT',
-  allowedHeaders: 'Content-Type',
-}));
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
 app.use(express.json());
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);
