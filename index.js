@@ -7,10 +7,7 @@ const cors = require('cors')
 const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
-app.use(cors({
-  origin: 'https://soft-cannoli-96b536.netlify.app', // Replace with your frontend domain
-  credentials: true, // This allows cookies to be sent across domains
-}));
+app.use(cors())
 app.use(express.json());
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);
