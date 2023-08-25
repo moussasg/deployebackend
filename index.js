@@ -7,11 +7,10 @@ const cors = require('cors')
 const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
-const corsOptions = {
-  origin: 'https://soft-cannoli-96b536.netlify.app', // Remplacez par l'URL de votre frontend
-  credentials: true, // Permet d'inclure les cookies et les en-têtes d'authentification
-};
-app.use(cors(corsOptions))
+app.use(cors({
+  origin: 'https://soft-cannoli-96b536.netlify.app', // Replace with your frontend domain
+  credentials: true, // This allows cookies to be sent across domains
+}));
 app.use(express.json());
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);
