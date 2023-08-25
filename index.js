@@ -7,12 +7,16 @@ const mongoose = require('mongoose');
 const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
-app.use(cors());
-// Set up CORS headers manually
+app.use(cors({
+  origin: 'https://soft-cannoli-96b536.netlify.app',
+  methods: 'GET, POST',
+  credentials: true, // Allow credentials
+}));// Set up CORS headers manually
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // Replace with your frontend domain
-  res.header('Access-Control-Allow-Methods', 'GET, POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Origin', 'https://soft-cannoli-96b536.netlify.app');
+res.header('Access-Control-Allow-Methods', 'GET, POST');
+res.header('Access-Control-Allow-Headers', 'Content-Type');
+res.header('Access-Control-Allow-Credentials', true);
   next();
 });
 
