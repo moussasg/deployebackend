@@ -132,14 +132,11 @@ const commands_post = async (req,res) => {
 }
 const signup_post = async (req, res) => {
   const { email, password } = req.body;
-  const headers = {
-    Authorization: `Bearer ${token}`,
-  }
   try {
     const user = await User.create({ email, password });
     const token = createToken(user._id);
-    res.cookie('jwt', token, { httpsOnly: true, maxAge: maxAge * 1000 });
-    res.status(200).json({ success: true, user: user._id , token , headers});
+    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.status(200).json({ success: true, user: user._id , token });
   }
   catch (err) {
     const errors = handleErrors(err);
