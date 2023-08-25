@@ -82,9 +82,12 @@ const login_post = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.login(email, password);
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    }
     const token = createToken(user._id);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(200).json({ success: true, user: user._id , token})// TR2S TR2S IMPortantT défini token fel back aprés signup
+    res.status(200).json({ success: true, user: user._id , token , headers})// TR2S TR2S IMPortantT défini token fel back aprés signup
     // Après une connexion réussie
   }
   catch (err) {
