@@ -3,6 +3,7 @@ const express = require('express')
 const dotenv = require('dotenv');
 const cors = require('cors');
 const app = express()
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
@@ -21,6 +22,7 @@ res.header('Access-Control-Allow-Credentials', true);
 });
 
 app.use(express.json());
+app.use(cookieParser());
 app.get('*', checkUser);
 app.post('/signup', authController.signup_post);
 app.post('/login', authController.login_post);

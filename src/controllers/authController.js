@@ -23,7 +23,7 @@ const Command = require('../models/commands');
     }
   };
   const checkUser = (req, res, next) => {
-    const token = req.cookies.jwt;
+    const token = req.cookies.jwt; // cannot read jwt
     if (token) {
       jwt.verify(token, 'net ninja secret', async (err, decodedToken) => {
         if (err) {
