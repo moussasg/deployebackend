@@ -9,7 +9,7 @@ const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
 app.use(cors({
-  origin: 'https://soft-cannoli-96b536.netlify.app',
+  origin: 'https://mylastecommercewebsite.netlify.app',
   methods: 'GET, POST',
   credentials: true, // Allow credentials
 }));// Set up CORS headers manually
