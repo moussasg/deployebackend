@@ -12,7 +12,6 @@ app.use(cors({
   origin: 'https://soft-cannoli-96b536.netlify.app',
   methods: 'GET, POST',
   credentials: true, // Allow credentials
-  allowedHeaders: ['Content-Type', 'Authorization'], // Ajoutez les en-têtes personnalisés
 }));// Set up CORS headers manually
 app.use((req, res, next) => {
 res.header('Access-Control-Allow-Origin', 'https://mylastecommercewebsite.netlify.app');
