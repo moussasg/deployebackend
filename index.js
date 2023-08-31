@@ -9,12 +9,12 @@ const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
 app.use(cors({
-  origin: 'https://mylastecommercewebsite.netlify.app',
+  origin: 'https://ecommercebymern.netlify.app',
   methods: 'GET, POST',
   credentials: true, // Allow credentials
 }));// Set up CORS headers manually
 app.use((req, res, next) => {
-res.header('Access-Control-Allow-Origin', 'https://mylastecommercewebsite.netlify.app');
+res.header('Access-Control-Allow-Origin', 'https://ecommercebymern.netlify.app');
 res.header('Access-Control-Allow-Methods', 'GET, POST');
 res.header('Access-Control-Allow-Headers', 'Content-Type');
 res.header('Access-Control-Allow-Credentials', true);
