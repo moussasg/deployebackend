@@ -9,7 +9,7 @@ const authController = require('./src/controllers/authController')
 const {checkUser } = require('./src/controllers/authController')
 dotenv.config();
 app.use(cors({
-  origin: 'https://ecommercebymern.netlify.app',
+  origin: 'https://ecommercebymern.netlify.app', 
   methods: 'GET, POST',
   credentials: true, // Allow credentials
 }));// Set up CORS headers manually
@@ -20,7 +20,6 @@ res.header('Access-Control-Allow-Headers', 'Content-Type');
 res.header('Access-Control-Allow-Credentials', true);
   next();
 });
-
 app.use(express.json());
 app.use(cookieParser());
 app.get('*', checkUser);
@@ -37,7 +36,7 @@ mongoose.set('strictQuery', true)
 mongoose.connect(process.env.DB_URL , { useNewUrlParser: true  , useUnifiedTopology:true,} , ()=> {
   console.log("mongodb is connected")
 });
- app.listen(PORT , ()=> { 
+ app.listen(PORT , () => {
   console.log(`listening at port ${PORT}`)
 })
 
